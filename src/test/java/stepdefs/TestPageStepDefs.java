@@ -42,7 +42,7 @@ public class TestPageStepDefs extends Test_base {
     @Then("^I submit the answers$")
     public void iSubmitTheAnswers() {
         testPage.fillAnswerBoxes();
-//        testPage.click(BUTTON_SUBMIT);
+        testPage.click(BUTTON_SUBMIT);
     }
 
 }
