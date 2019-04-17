@@ -21,6 +21,7 @@ public class TestPage extends BasePage {
     private static final By INPUT_ANSWER_3 = By.cssSelector("[data-test-id=submit-3]");
     private static final By INPUT_NAME = By.cssSelector("[data-test-id=submit-4");
     public static final By BUTTON_SUBMIT = By.xpath("//*[@id=\"challenge\"]/div/div/div[2]/div/div[2]");
+    public static final By TEST_COMPLETED = By.xpath("/html/body/div[2]/div/div[1]/div/div/div[1]");
 
 
     //variables
@@ -101,5 +102,10 @@ public class TestPage extends BasePage {
         sendKeys(INPUT_ANSWER_2, values.get("Index1").toString());
         sendKeys(INPUT_ANSWER_3, values.get("Index2").toString());
         sendKeys(INPUT_NAME, "Jonathan Millington-Hotze");
+    }
+
+    public boolean isTestCompleted() {
+        waitForPageToLoad();
+        return getWebElement(TEST_COMPLETED).isDisplayed();
     }
 }

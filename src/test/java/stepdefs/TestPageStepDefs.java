@@ -7,6 +7,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pages.TestPage;
 
+import static org.junit.Assert.assertTrue;
 import static pages.TestPage.BUTTON_SUBMIT;
 
 public class TestPageStepDefs extends Test_base {
@@ -43,6 +44,12 @@ public class TestPageStepDefs extends Test_base {
     public void iSubmitTheAnswers() {
         testPage.fillAnswerBoxes();
         testPage.click(BUTTON_SUBMIT);
+    }
+
+    @Then("^I have completed the test$")
+    public void iHaveCompletedTheTest() {
+        assertTrue("The test did not successfully complete",
+                testPage.isTestCompleted());
     }
 
 }
